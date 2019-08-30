@@ -1,0 +1,82 @@
+s
+    {
+        public static int Width { get; set; }
+        public static int Height { get; set; }
+        public static int Speed { get; set; }
+        public static int Score { get; set; }
+        public static int Points { get; set; }
+        public static bool GameOver { get; set; }
+        public static Direction direction { get; set; }
+        public Settings()
+        {
+            Width = 16;
+            Height = 16;
+            Speed = 16;
+            Score = 0;
+            Points = 100;
+            GameOver = false;
+            direction = Direction.Down;
+        }
+    }
+    
+    
+    using System.Collections;
+using System.Windows.Forms;
+
+namespace Snake
+{
+    class Input
+    {
+        //Load list of availible Keyboard buttons
+        private static Hashtable keyTable = new Hashtable();
+
+        //Perform a check to see if a particular button is pressed.
+        public static bool KeyPressed(Keys key)
+        {
+            if (keyTable[key] == null)
+            {
+                return false;
+            }
+            return (bool)keyTable[key];
+        }
+        //Detect if a keyboard button is pressed
+        public static void ChangeState(Keys key, bool state)
+        {
+            keyTable[key] = state;
+        }
+        
+        namespace Snake
+{
+    class Circle
+    {
+        public int X { get; set; }
+        public int Y { get; set; }
+        public Circle ()
+        {
+            X = 0;
+            Y = 0;
+        }
+    }
+}
+
+using System;
+using System.Windows.Forms;
+
+namespace Snake
+{
+    static class Program
+    {
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main()
+        {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form());
+        }
+
+        
+    }
+}
